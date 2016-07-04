@@ -1,0 +1,35 @@
+{{ partial "header.html" . }}
+
+    <!-- Content -->
+      <div id="content">
+        <div class="inner">
+
+          <!-- Post -->
+          <article class="box post post-excerpt">
+            <header>
+              <h2><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
+              <p>
+              Word Count: {{ .WordCount }}, Reading Time: {{ .ReadingTime }}
+              minutes
+              </p>
+            </header>
+            <div class="info">
+              <ul class="stats">
+                <li><a href="#" class="icon fa-comment">16</a></li>
+                <li><a href="#" class="icon fa-heart">32</a></li>
+                <li><a href="#" class="icon fa-twitter">64</a></li>
+                <li><a href="#" class="icon fa-facebook">128</a></li>
+              </ul>
+            </div>
+            <a href="#" class="image featured"><img src="images/pic02.jpg"
+              alt="" /></a>
+            <p>
+              {{ .Content }}
+            </p>
+          </article>
+
+        </div>
+      </div>
+
+{{ partial "sidebar.html" . }}
+{{ partial "footer.html" . }}

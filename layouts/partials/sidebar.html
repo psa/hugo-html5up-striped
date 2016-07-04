@@ -1,0 +1,66 @@
+<div id="sidebar">
+
+  <h1 id="logo"><a href="#">STRIPED</a></h1>
+
+  <nav id="nav">
+    <ul>
+      <li class="current"><a href="#">Latest Post</a></li>
+      <li><a href="#">Archives</a></li>
+      {{ if .Site.Params.about }}
+      <li><a href="about">About Me</a></li>
+      {{ end }}
+      <li><a href="#">Contact Me</a></li>
+    </ul>
+  </nav>
+
+  {{ if .Site.Params.search.google.cx }}
+  <section class="box search">
+    <form id="cse-search-box" action="http://google.com/cse">
+      <input type="hidden" name="cx"
+        value="{{ .Site.Params.search.google.cx }}" />
+      <input type="hidden" name="ie" value="UTF-8" />
+      <input class="text" type="text" name="q" placeholder="Search" />
+    </form>
+<!--
+  Search powered by Google.
+-->
+  </section>
+  {{ end }}
+
+<!--
+  <section class="box search">
+    <form method="post" action="#">
+      <input type="text" class="text" name="search" placeholder="Search" />
+    </form>
+  </section>
+-->
+
+  <section class="box recent-posts">
+    <header>
+      <h2>Recent Posts</h2>
+    </header>
+    <ul>
+      {{ $recent_posts := .Site.Params.posts.recent | default 5 }}
+      {{ range first $recent_posts (where .Data.Pages "Section" "post") }}
+      <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
+      {{ end }}
+    </ul>
+  </section>
+
+  <section class="box recent-comments">
+    <header>
+      <h2>Recent Comments</h2>
+    </header>
+    <ul>
+      <li>case on <a href="#">Lorem ipsum dolor</a></li>
+      <li>molly on <a href="#">Sed dolore magna</a></li>
+      <li>case on <a href="#">Sed dolore magna</a></li>
+    </ul>
+  </section>
+
+  <ul id="copyright">
+    <li>&copy; Untitled.</li><li>Design: <a
+      href="http://html5up.net">HTML5 UP</a></li>
+  </ul>
+
+</div>

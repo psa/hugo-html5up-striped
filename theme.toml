@@ -1,0 +1,18 @@
+name = "Striped"
+license = "MIT"
+licenselink = "https://github.com/psa/hugo-html5up-striped/blob/master/LICENSE.md"
+description = "Striped theme from HTML5 UP for Hugo"
+homepage = "http://siteforthistheme.com/"
+tags = ["HTML5UP", ""]
+features = ["", ""]
+min_version = 0.15
+
+[author]
+  name = "Paul Armstrong"
+  homepage = ""
+
+# If porting an existing theme
+[original]
+  name = "Striped"
+  homepage = "https://html5up.net/striped"
+  repo = ""
