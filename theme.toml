@@ -3,7 +3,7 @@ license = "MIT"
 licenselink = "https://github.com/psa/hugo-html5up-striped/blob/master/LICENSE.md"
 description = "Striped theme from HTML5 UP for Hugo"
 homepage = "http://siteforthistheme.com/"
-tags = ["HTML5UP", ""]
+tags = ["HTML5 UP", ""]
 features = ["", ""]
 min_version = 0.15
 
