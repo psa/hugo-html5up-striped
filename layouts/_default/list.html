@@ -1,0 +1,54 @@
+{{ partial "header.html" . }}
+
+  {{ $show_posts := .Site.Params.posts.excerpt.perPage | default 10 }}
+  {{ $recent_posts := .Data.Pages.ByDate.Reverse }}
+
+  <!-- Content -->
+    <div id="content">
+      <div class="inner">
+
+        <!-- Post -->
+        {{ range first $show_posts (where $recent_posts "Section" "post") }}
+          {{ if eq .Type "post" }}
+          <article class="box post post-excerpt">
+            <header>
+              <h2><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
+              <p>
+              Word Count: {{ .WordCount }}, Reading Time: {{ .ReadingTime }}
+              {{ if eq .ReadingTime 1 }} minute {{ else }} minutes {{ end }}
+              </p>
+            </header>
+            <div class="info">
+              <!--
+              <span class="date"><span class="month">Jul<span>y</span></span> <span class="day">8</span><span class="year">, 2014</span></span>
+              -->
+              <span class="date">
+                {{ .Date.Format "2006-01-02" }}
+              </span>
+              <ul class="stats">
+                <li><a href="#" class="icon fa-comment">16</a></li>
+                <li><a href="#" class="icon fa-heart">32</a></li>
+                <li><a href="#" class="icon fa-twitter">64</a></li>
+                <li><a href="#" class="icon fa-facebook">128</a></li>
+              </ul>
+            </div>
+            <a href="#" class="image featured"><img src="images/pic02.jpg" alt="" /></a>
+            <p>
+              {{ .Summary }}
+              {{ if .Truncated }}
+              <div class="read-more-link">
+                <a href="{{ .RelPermalink }}">Read More…</a>
+              </div>
+              {{ end }}
+            </p>
+          </article>
+          {{ end }}
+        {{ end }}
+
+        {{ partial "pagination.html" . }}
+
+      </div>
+    </div>
+
+{{ partial "sidebar.html" . }}
+{{ partial "footer.html" . }}

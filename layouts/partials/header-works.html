@@ -5,7 +5,7 @@
   Free for personal and commercial use under the CCA 3.0 license
   (html5up.net/license)
 -->
-<html lang="{{ .Site.LanguageCode }}">
+<html>
   <head>
     <title>{{ .Site.Title }}</title>
     <meta charset="utf-8" />
@@ -15,18 +15,15 @@
     <link rel="stylesheet" href="/css/main.min.css" />
     <!--[if lte IE 8]><link rel="stylesheet" href="/css/ie8.min.css"
     /><![endif]-->
-    {{ if isset .Site.Params.shareThis "id" }}
+    {{ if isset .Site.Params.sharethis "id" }}
+    {{ $uri_scheme := findRE "^(https?)://.*" .Site.BaseURL 1 }}
     <script type="text/javascript">var switchTo5x=true;</script>
     <script type="text/javascript"
-      src="https://ws.sharethis.com/button/buttons.js">
+      src="{{ $uri_scheme }}://w.sharethis.com/button/buttons.js">
     </script>
     <script type="text/javascript">
-      stLight.options({publisher: "{{ .Site.Params.shareThis.id }}",
-        doNotHash: {{ .Site.Params.shareThis.doNotHash | default true }},
-        doNotCopy: {{ .Site.Params.shareThis.doNotCopy | default true }},
-        hashAddressBar:
-          {{ .Site.Params.shareThis.hashAddressBar | default false }}
-      });
+      stLight.options({publisher: "{{ .Site.Params.sharethis.id }}",
+        doNotHash: false, doNotCopy: false, hashAddressBar: true});
     </script>
     {{ end }}
   </head>
