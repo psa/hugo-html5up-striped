@@ -1913,73 +1913,6 @@
 
 /* Box */
 
-  .box.calendar .inner {
-    position: relative;
-    background-color: #272E39;
-    background-color: rgba(0, 0, 0, 0.15);
-    border-radius: 0.4em;
-    padding: 0.75em 0.5em 0.75em 0.5em;
-    box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.05), inset 0 0 0.25em 0 rgba(0, 0, 0, 0.25);
-  }
-
-  .box.calendar caption {
-    font-weight: 700;
-    color: #fff;
-    margin: 0 0 0.25em 0;
-  }
-
-  .box.calendar table {
-    margin: 0 auto;
-  }
-
-  .box.calendar td {
-    cursor: default;
-    padding: 0.35em 0 0.35em 0;
-    border-top: solid 1px rgba(0, 0, 0, 0.25);
-    box-shadow: inset 0px 1px 0px 0px rgba(255, 255, 255, 0.075);
-  }
-
-  .box.calendar th {
-    cursor: default;
-    padding: 0.35em 0 0.35em 0;
-    border-top: solid 1px rgba(0, 0, 0, 0.25);
-    box-shadow: inset 0px 1px 0px 0px rgba(255, 255, 255, 0.075);
-    font-weight: 700;
-    color: #fff;
-  }
-
-  .box.calendar td a, .box.calendar td span {
-    display: block;
-    margin: 0 auto;
-    width: 1.5em;
-    height: 1.5em;
-    text-align: center;
-    line-height: 1.4em;
-    border-radius: 0.4em;
-    -moz-transition: background-color .25s ease-in-out;
-    -webkit-transition: background-color .25s ease-in-out;
-    -ms-transition: background-color .25s ease-in-out;
-    transition: background-color .25s ease-in-out;
-    text-decoration: none;
-  }
-
-  .box.calendar td a {
-    color: #fff;
-    font-weight: 700;
-  }
-
-    .box.calendar td a:hover {
-      background-color: rgba(200, 225, 255, 0.1);
-      color: #fff;
-    }
-
-  .box.calendar td.today a {
-    background-color: #c94663;
-    background-image: url("images/bg01.png");
-    box-shadow: inset 0px 0px 0px 1px rgba(255, 255, 255, 0.15), 0 0.025em 0.15em 0em rgba(0, 0, 0, 0.25);
-    color: #fff !important;
-  }
-
   .box.post {
     position: relative;
   }
@@ -2010,22 +1943,6 @@
     }
 
     .box.recent-posts li:last-child {
-      padding-bottom: 0;
-    }
-
-  .box.recent-comments li {
-    border-top: solid 1px rgba(0, 0, 0, 0.25);
-    box-shadow: inset 0px 1px 0px 0px rgba(255, 255, 255, 0.075);
-    padding: 0.5em 0 0.5em 0;
-  }
-
-    .box.recent-comments li:first-child {
-      border-top: 0;
-      box-shadow: none;
-      padding-top: 0;
-    }
-
-    .box.recent-comments li:last-child {
       padding-bottom: 0;
     }
 
@@ -2545,60 +2462,6 @@
         border-top-left-radius: 0.4em;
         border-bottom-left-radius: 0.4em;
         box-shadow: 0.25em 0 0 0 #fbfbfb, 0 0 0.25em 0em rgba(0, 0, 0, 0.25);
-      }
-
-      .box.post .info .date {
-        position: relative;
-        z-index: 1;
-        font-family: 'Open Sans Condensed', sans-serif;
-        font-weight: 400;
-        text-align: center;
-        display: block;
-        font-size: 1.5em;
-        color: #999;
-        border-bottom: solid 1px #ddd;
-        padding: 0 0 1em 0;
-        margin: 0 0 0.75em 0;
-      }
-
-      .box.post .info .date .year,
-      .box.post .info .date .month span {
-        display: none;
-      }
-
-      .box.post .info .date .day {
-        display: block;
-        margin: 0.25em 0 0 0;
-        font-size: 1.5em;
-        font-weight: 700;
-        color: #1b252a;
-      }
-
-      .box.post .info .stats {
-        position: relative;
-        z-index: 1;
-      }
-
-      .box.post .info .stats li {
-        margin: 1.25em 0 0 0;
-      }
-
-      .box.post .info .stats li a {
-        position: relative;
-        display: block;
-        text-align: right;
-        padding: 0 0.5em 0 0.5em;
-      }
-
-      .box.post .info .stats li a:before {
-        position: absolute;
-        left: 0;
-        top: 50%;
-        margin-top: -0.5em;
-        font-size: 16px;
-        width: 1.5em;
-        text-align: center;
-        opacity: 0.35;
       }
 
     /* Content */
