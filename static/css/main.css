@@ -2185,13 +2185,13 @@
 
 /* Content */
 
-  #content {
+  #post-content {
     position: relative;
     background-color: #fff;
     background-image: url("images/bg02.png");
   }
 
-  #content > .inner {
+  #post-content > .inner {
     position: relative;
     z-index: 1;
   }
@@ -2347,11 +2347,11 @@
 
     /* Content */
 
-      #content {
+      #post-content {
         box-shadow: 0 0 0.25em 0em rgba(0, 0, 0, 0.25);
       }
 
-      #content > .inner {
+      #post-content > .inner {
 
         /*
           This sets an upper limit on your page content to prevent it
@@ -2412,6 +2412,21 @@
         line-height: 1.25em;
       }
 
+      .box.post h3 {
+        font-size: 2.5em;
+        line-height: 1em;
+      }
+
+      .box.post h4 {
+        font-size: 2.0em;
+        line-height: 1em;
+      }
+
+      .box.post h5 h6 {
+        font-size: 1.5em;
+        line-height: 1em;
+      }
+
       .box.post header {
         padding: 2.75em 0 0 0;
         margin: 0 0 3em 0;
@@ -2466,7 +2481,7 @@
 
     /* Content */
 
-      #content {
+      #post-content {
         padding: 3em 5em 8em 5em;
         margin-left: 21em;
       }
@@ -2494,6 +2509,22 @@
         font-size: 3.25em;
         line-height: 1.25em;
       }
+
+      .box.post h3 {
+        font-size: 2.5em;
+        line-height: 1em;
+      }
+
+      .box.post h4 {
+        font-size: 2.0em;
+        line-height: 1em;
+      }
+
+      .box.post h5 h6 {
+        font-size: 1.5em;
+        line-height: 1em;
+      }
+
 
       .box.post header {
         padding: 1.5em 0 0 0;
@@ -2546,7 +2577,7 @@
 
     /* Content */
 
-      #content {
+      #post-content {
         padding: 2em 3em 6em 3em;
         margin-left: 14em;
       }
@@ -2718,7 +2749,7 @@
 
     /* Content */
 
-      #content {
+      #post-content {
         margin-top: 44px;
         padding: 3em 20px 2em 20px;
       }
@@ -2761,7 +2792,7 @@
 
     /* Content */
 
-      #content {
+      #post-content {
         -moz-backface-visibility: hidden;
         -webkit-backface-visibility: hidden;
         -ms-backface-visibility: hidden;
@@ -2804,7 +2835,7 @@
         transform: translateX(-14em);
       }
 
-      body.sidebar-visible #content, body.sidebar-visible #titleBar {
+      body.sidebar-visible #post-content, body.sidebar-visible #titleBar {
         -moz-transform: translateX(14em);
         -webkit-transform: translateX(14em);
         -ms-transform: translateX(14em);

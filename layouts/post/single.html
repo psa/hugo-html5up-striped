@@ -1,28 +1,22 @@
 {{ partial "header.html" . }}
 
     <!-- Content -->
-      <div id="content">
+      <div id="post-content">
         <div class="inner">
 
           <!-- Post -->
-          <article class="box post post-excerpt">
+          <article class="box post">
             <header>
               <h2><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
               <p>
+              Date: {{ .Date.Format "2006-01-02" }},
               Word Count: {{ .WordCount }}, Reading Time: {{ .ReadingTime }}
               minutes
               </p>
             </header>
-            <div class="info-iso">
-              <span class="date-iso">
-                {{ .Date.Format "2006-01-02" }}
-              </span>
-            </div>
-            <p>
-              {{ .Content }}
-            </p>
-          {{ partial "sharethis.html" . }}
-          {{ partial "disqus.html" . }}
+            {{ .Content }}
+            {{ partial "sharethis.html" . }}
+            {{ partial "disqus.html" . }}
           </article>
 
         </div>
