@@ -1,6 +1,6 @@
 {{ if isset .Site.Params.shareThis "id" }}
 <div>
-  {{ $st_default := slice "baidu" "digg" "email" "facebook" "flipboard" "googleplus" "instapaper" "reddit" "tumblr" "twitter" }}
+  {{ $st_default := slice "baidu" "digg" "email" "facebook" "flipboard" "googleplus" "instapaper" "reddit" "stumbleupon" "tumblr" "twitter" }}
   {{ $sharethis_sites := .Site.Params.shareThis.sites | default $st_default }}
   {{ range $share := $sharethis_sites }}
   <span class='st_{{ $share }}_large' displayText='{{ $share }}'></span>
