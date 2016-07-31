@@ -22,6 +22,7 @@ Variables
 * Copyright: Your copyright text
 * DisqusShortname: Disqus shortcode
 * Title: Used in head title
+* Paginate: Sets the number of items shown in each pagnation
 
 Params
 ======
@@ -30,6 +31,7 @@ Params
 * excerpt.perPage: Number of post excerpts to show per page (over this gets
   paginated)
 * search.google.cx: custom search ID for Google
+* maxPagination: Maximum number of paginated pages to list (default 10)
 * sharethis:
   * id: Your sharethis publisher ID
   * sites: Array of ShareThis supported sites to provide
@@ -46,9 +48,11 @@ Params
     * target: Where to send users if they click the logo (default "/")
     * title: The title for the logo (default "Home")
   * posts:
-    * recent: Number of posts to show under "Recent Posts" (default 5)
+    * recent: Number of posts to show under "Recent Posts"
+      (default 5, 0 to disable showing recent posts)
   * tags:
     * top: Number of most used tags to show
+      (default 5, 0 to disable showing tags)
 
 Example Params
 ==============

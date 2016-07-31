@@ -1,15 +1,18 @@
 {{ partial "header.html" . }}
 
-  {{ $show_posts := .Site.Params.posts.excerpt.perPage | default 10 }}
-  {{ $recent_posts := .Data.Pages.ByDate.Reverse }}
+  {{ $max_pages := .Site.Params.maxPagination | default 10 }}
+  {{ if .Site.Params.orderByPublishDate }}
+    {{ $paginator := .Paginate (first $max_pages (where .Data.Pages.ByPublishDate.Reverse "Type" "post")) }}
+  {{ else }}
+    {{ $paginator := .Paginate (first $max_pages (where .Data.Pages "Type" "post")) }}
+  {{ end }}
 
   <!-- Content -->
     <div id="post-content">
       <div class="inner">
 
         <!-- Post -->
-        {{ range first $show_posts (where $recent_posts "Section" "post") }}
-          {{ if eq .Type "post" }}
+        {{ range .Paginator.Pages }}
           <article class="box post post-excerpt">
             <header>
               <h2><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
@@ -18,8 +21,8 @@
               {{ if eq .ReadingTime 1 }} minute {{ else }} minutes {{ end }}
               </p>
             </header>
-            <div class="info-iso">
-              <span class="date-iso">
+            <div class="info">
+              <span class="date">
                 {{ .Date.Format "2006-01-02" }}
               </span>
             </div>
@@ -32,7 +35,6 @@
               {{ end }}
             </p>
           </article>
-          {{ end }}
         {{ end }}
 
         {{ partial "pagination.html" . }}

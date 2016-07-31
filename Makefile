@@ -1,19 +1,17 @@
 CSS_DIR=static/css
 JS_DIR=static/js
+SASS_DIR=static/sass
 
-all: main.css main.js util.js
+all: $(CSS_DIR)/main.min.css $(JS_DIR)/main.min.js $(JS_DIR)/util.min.js
 
-main.css:
-	curl -X POST -s --data-urlencode \
-		'input@$(CSS_DIR)/main.css' https://cssminifier.com/raw \
-		> $(CSS_DIR)/main.min.css
+$(CSS_DIR)/main.min.css:  $(CSS_DIR)/main.css
+	cleancss -o $(CSS_DIR)/main.min.css $(CSS_DIR)/main.css
 
-main.js:
-	curl -X POST -s --data-urlencode \
-		'input@$(JS_DIR)/main.js' https://javascript-minifier.com/raw \
-		> $(JS_DIR)/main.min.js
+$(CSS_DIR)/main.css: $(SASS_DIR)/main.scss
+	sass $(SASS_DIR)/main.scss $(CSS_DIR)/main.css
 
-util.js:
-	curl -X POST -s --data-urlencode \
-		'input@$(JS_DIR)/util.js' https://javascript-minifier.com/raw \
-		> $(JS_DIR)/util.min.js
+$(JS_DIR)/main.min.js: $(JS_DIR)/main.js
+	uglifyjs -c -m -o $(JS_DIR)/main.min.js --  $(JS_DIR)/main.js
+
+$(JS_DIR)/util.min.js: $(JS_DIR)/util.js
+	uglifyjs -c -m -o $(JS_DIR)/util.min.js --  $(JS_DIR)/util.js
