@@ -8,8 +8,9 @@
 
   {{ $show_categories := .Site.Params.sidebar.categories | default 5 }}
   {{ $show_posts := .Site.Params.sidebar.recentPosts | default 5 }}
+  {{ $show_updates := .Site.Params.sidebar.recentUpdates | default 5 }}
   {{ $show_tags := .Site.Params.sidebar.tags | default 5 }}
-  {{ $recent_posts := .Site.Pages.ByDate.Reverse }}
+  {{ $changes := .Site.Pages.ByDate.Reverse }}
   {{ $about_enable := .Site.Params.sidebar.about | default true }}
   {{ $contact_enable := .Site.Params.sidebar.contact | default true }}
   {{ $about_title := .Site.Params.sidebar.about | default "About" }}
@@ -29,10 +30,14 @@
 
   <nav id="nav">
     <ul>
-      {{ range .Site.Taxonomies.categories.Alphabetical }}
+      {{ range $taxonomyname, $taxonomy := .Site.Taxonomies }}
+      {{ if in (slice "categories" "tags") $taxonomyname }}
+      <!-- "if not in" does not seem to work -->
+      {{else}}
       <li>
-        <a href="/categories/{{ .Name | urlize }}">{{ .Name | humanize }}</a>
+      <a href="{{ $taxonomyname | relURL }}">{{ humanize $taxonomyname }}</a>
       </li>
+      {{ end }}
       {{ end }}
     </ul>
   </nav>
@@ -48,13 +53,39 @@
   </section>
   {{ end }}
 
+  <nav id="nav">
+    <header>
+      <h2>Categories</h2>
+    </header>
+    <ul>
+      {{ range .Site.Taxonomies.categories.Alphabetical }}
+      <li>
+        <a href="/categories/{{ .Name | urlize }}">{{ .Name | humanize }}</a>
+      </li>
+      {{ end }}
+    </ul>
+  </nav>
+
+  {{ if gt $show_updates 0 }}
+  <nav id="nav">
+    <header>
+      <h2>Recent Updates</h2>
+    </header>
+    <ul>
+      {{ range first $show_updates (where $changes "Type" "!=" "post") }}
+      <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
+      {{ end }}
+    </ul>
+  </nav>
+  {{ end }}
+
   {{ if gt $show_posts 0 }}
   <nav id="nav">
     <header>
       <h2>Recent Posts</h2>
     </header>
     <ul>
-      {{ range first $show_posts (where $recent_posts "Type" "post") }}
+      {{ range first $show_posts (where $changes "Type" "post") }}
       <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
       {{ end }}
     </ul>
