@@ -3,28 +3,19 @@
 <div id="post-content">
   <div class="inner">
 
-    <article class="box post post-excerpt">
+    <article class="box post">
       <header>
         <h2><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
         <p>
-        Word Count: {{ .WordCount }} &middot;
-        Reading Time: {{ .ReadingTime }}
-        {{ if eq .ReadingTime 1 }} minute {{ else }} minutes {{ end }}
+          Date: {{ .Date.Format "2006-01-02" }} &middot;
+          Word Count: {{ .WordCount }} &middot;
+          Reading Time: {{ .ReadingTime }}
+          {{ if eq .ReadingTime 1 }} minute {{ else }} minutes {{ end }}
         </p>
       </header>
-      <div class="info">
-        <span class="date">
-          {{ .Date.Format "2006-01-02" }}
-        </span>
-      </div>
-      <p>
-        {{ .Summary }}
-        {{ if .Truncated }}
-        <div class="read-more-link">
-          <a href="{{ .RelPermalink }}">Read More…</a>
-        </div>
-        {{ end }}
-      </p>
+      {{ .Content }}
+      {{ partial "sharethis.html" . }}
+      {{ partial "disqus.html" . }}
     </article>
 
   </div>
