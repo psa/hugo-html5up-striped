@@ -1,7 +1,7 @@
 Overview
 ========
 
-A Hugo theme based on the HTML5 UP [Striped][https://html5up.net/striped]
+A Hugo theme based on the HTML5 UP [Striped](https://html5up.net/striped)
 theme.
 
 Features:
@@ -39,8 +39,8 @@ Params
 * shareThis:
   * id: Your sharethis publisher ID
   * sites: Array of ShareThis supported sites to provide
-    * Supported sites: https://support.sharethis.com/hc/en-us/articles/218912477-Supported-Social-Sharing-Services-on-ShareThis
-  * doNotHash: Enable/Disable CopyNShare (see https://support.sharethis.com/hc/en-us/articles/217933478-How-to-Enable-and-Disable-CopyNShare)
+    * [Supported sites](https://support.sharethis.com/hc/en-us/articles/218912477-Supported-Social-Sharing-Services-on-ShareThis)
+  * doNotHash: Enable/Disable [CopyNShare](https://support.sharethis.com/hc/en-us/articles/217933478-How-to-Enable-and-Disable-CopyNShare)
   * doNotCopy: If false,  “See more: yourURL.com#SThashtag” will appear after a user pastes texts after a copy action.
   * hashAddressBar: If true, a special #hastag will be appended to the end of your address bar URL
 * sidebar:
