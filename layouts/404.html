@@ -1,9 +1,4 @@
 {{ partial "header.html" . }}
-
-  {{ $show_posts := .Site.Params.posts.excerpt.perPage | default 10 }}
-  {{ $recent_posts := .Data.Pages.ByDate.Reverse }}
-
-  <!-- Content -->
   <div id="post-content">
     <div class="inner">
       <article class="box post">

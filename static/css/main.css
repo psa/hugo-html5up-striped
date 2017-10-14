@@ -1214,6 +1214,10 @@ input, textarea, select {
 a {
   color: #c94663; }
 
+div.inner strong, div.inner b {
+  font-weight: 700;
+  color: #232323; }
+
 strong, b {
   font-weight: 700;
   color: #232323; }
@@ -1317,6 +1321,11 @@ header {
     display: block;
     margin-top: 1em;
     color: #999; }
+  header > ul {
+    font-family: 'Open Sans Condensed', sans-serif;
+    font-weight: 300;
+    display: block;
+    margin-top: 1em; }
 
 section, article {
   margin-bottom: 3em; }
@@ -1417,6 +1426,8 @@ div.inner ul {
   padding-left: 1em; }
   div.inner ul li {
     padding-left: 0.5em; }
+  div.inner ul.no-list-style {
+    list-style: none; }
 
 div.inner ol {
   list-style: decimal;
@@ -1429,6 +1440,8 @@ ul.default {
   padding-left: 1em; }
   ul.default li {
     padding-left: 0.5em; }
+ul.no-list-style {
+  list-style: none; }
 
 ol.default {
   list-style: decimal;

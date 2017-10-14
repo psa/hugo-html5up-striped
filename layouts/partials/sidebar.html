@@ -16,7 +16,7 @@
   {{ $about_title := .Site.Params.sidebar.about | default "About" }}
   {{ $contact_title := .Site.Params.sidebar.contact | default "Contact" }}
 
-  {{ if and $about_enable $contact_enable }}
+  {{ if or $about_enable $contact_enable }}
   <nav id="nav">
     <ul>
       {{ if $about_enable }}
@@ -30,14 +30,18 @@
 
   <nav id="nav">
     <ul>
-      {{ range $taxonomyname, $taxonomy := .Site.Taxonomies }}
-      {{ if in (slice "categories" "tags") $taxonomyname }}
-      <!-- "if not in" does not seem to work -->
-      {{else}}
+      {{ range $name, $value := .Site.Sections }}
+        {{ if ne $name "" }}
+          {{ if ne $name "post" }}
       <li>
-      <a href="{{ $taxonomyname | relURL }}">{{ humanize $taxonomyname }}</a>
+        <a href="/{{ $name }}">{{ humanize $name }}</a>
       </li>
-      {{ end }}
+          {{ else }}
+      <li>
+        <a href="/post">Blog</a>
+      </li>
+          {{ end }}
+        {{ end }}
       {{ end }}
     </ul>
   </nav>
@@ -52,19 +56,6 @@
     </form>
   </section>
   {{ end }}
-
-  <nav id="nav">
-    <header>
-      <h2>Categories</h2>
-    </header>
-    <ul>
-      {{ range .Site.Taxonomies.categories.Alphabetical }}
-      <li>
-        <a href="/categories/{{ .Name | urlize }}">{{ .Name | humanize }}</a>
-      </li>
-      {{ end }}
-    </ul>
-  </nav>
 
   {{ if gt $show_updates 0 }}
   <nav id="nav">
@@ -91,6 +82,19 @@
     </ul>
   </nav>
   {{ end }}
+
+  <nav id="nav">
+    <header>
+      <h2>Categories</h2>
+    </header>
+    <ul>
+      {{ range .Site.Taxonomies.categories.Alphabetical }}
+      <li>
+        <a href="/categories/{{ .Name | urlize }}">{{ .Name | humanize }}</a>
+      </li>
+      {{ end }}
+    </ul>
+  </nav>
 
   {{ if gt $show_tags 0 }}
   <nav id="nav">

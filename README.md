@@ -1,10 +1,10 @@
 Overview
 ========
 
-A Hugo theme based on the HTML5 UP Striped theme.
+A Hugo theme based on the HTML5 UP [Striped][https://html5up.net/striped]
+theme.
 
 Features:
-* Highly configurable
 * Pagination
 * Tagging
 * Disqus
@@ -23,16 +23,20 @@ Variables
 * DisqusShortname: Disqus shortcode
 * Title: Used in head title
 * Paginate: Sets the number of items shown in each pagnation
+* Taxonomies: Sections you wish to break your content into. NB: If you're
+  adding new taxonomies, you _must_ include the "category" and "tags"
+  taxonomies in your new list as it overrides the original.
 
 Params
 ======
 * about: Create a link to about/index.html for an about me page
 * contact: Create a link to contact/index.html for a contact page
-* excerpt.perPage: Number of post excerpts to show per page (over this gets
-  paginated)
+* excerpt.perPage: Number of post excerpts to show per page (over this
+  gets paginated)
+* favicon: favicon image name
 * search.google.cx: custom search ID for Google
 * maxPagination: Maximum number of paginated pages to list (default 10)
-* sharethis:
+* shareThis:
   * id: Your sharethis publisher ID
   * sites: Array of ShareThis supported sites to provide
     * Supported sites: https://support.sharethis.com/hc/en-us/articles/218912477-Supported-Social-Sharing-Services-on-ShareThis
@@ -44,15 +48,17 @@ Params
   * contact: String to replace "Contact" with. Use false to disable.
   * categories:
     * top: Number of most used categories to show
+      (default 5, -1 to disable showing categories)
   * logo:
     * target: Where to send users if they click the logo (default "/")
     * title: The title for the logo (default "Home")
-  * posts:
-    * recent: Number of posts to show under "Recent Posts"
-      (default 5, 0 to disable showing recent posts)
-  * tags:
-    * top: Number of most used tags to show
-      (default 5, 0 to disable showing tags)
+  * recentPosts: Number of posts to show under "Recent Posts"
+      (default 5, -1 to disable showing recent posts)
+  * recentUpdates: Number of non-post updates to show under "Recent
+      Updates"
+      (default 5, -1 to disable showing recent updates)
+  * tags: Number of most used tags to show
+      (default 5, -1 to disable showing tags)
 
 Example Params
 ==============
@@ -67,8 +73,7 @@ paginate = 3
 theme = "hugo-html5up-striped"
 [params]
   about = true
-  [params.excerpt]
-    perPage = 10
+  maxPagination = 10
   [params.posts]
     recent = 3
   [params.search.google]

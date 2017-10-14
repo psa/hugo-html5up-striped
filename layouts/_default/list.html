@@ -2,9 +2,9 @@
 
   {{ $max_pages := .Site.Params.maxPagination | default 10 }}
   {{ if .Site.Params.orderByPublishDate }}
-    {{ $paginator := .Paginate (first $max_pages (where .Data.Pages.ByPublishDate.Reverse "Type" "post")) }}
+    {{ $paginator := .Paginate (first $max_pages .Data.Pages.ByPublishDate.Reverse ) }}
   {{ else }}
-    {{ $paginator := .Paginate (first $max_pages (where .Data.Pages "Type" "post")) }}
+    {{ $paginator := .Paginate (first $max_pages .Data.Pages ) }}
   {{ end }}
 
   <!-- Content -->
@@ -16,29 +16,39 @@
           <article class="box post post-excerpt">
             <header>
               <h2><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
+              {{ if eq .Type "post" }}
               <p>
               Word Count: {{ .WordCount }} &middot;
               Reading Time: {{ .ReadingTime }}
               {{ if eq .ReadingTime 1 }} minute {{ else }} minutes {{ end }}
               </p>
+              {{ else }}
+              {{ if .Description }}
+              {{ .Description }}
+              {{ end }}
+              {{ end }}
             </header>
+            {{ if eq .Type "post" }}
             <div class="info">
               <span class="date">
                 {{ .Date.Format "2006-01-02" }}
               </span>
             </div>
+            {{ end }}
             <p>
+              {{ if eq .Type "post" }}
               {{ .Summary }}
               {{ if .Truncated }}
               <div class="read-more-link">
                 <a href="{{ .RelPermalink }}">Read More…</a>
               </div>
               {{ end }}
+              {{ end }}
             </p>
           </article>
         {{ end }}
 
-        {{ partial "pagination.html" . }}
+        {{ partial "section_pager.html" . }}
 
       </div>
     </div>

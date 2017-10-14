@@ -1,0 +1,19 @@
+{{ $paginator := .Paginator }}
+{{ if gt $paginator.TotalPages 1 }}
+<div class="pagination">
+  {{ if .PrevInSection }}
+  <a href="{{ .PrevInSection.Permalink }}" class="button previous">
+    Previous Page</a>
+  {{ end }}
+  <div class="pages">
+    {{ range $paginator.Pagers }}
+    <a href="{{ .URL }}" {{ if eq . $paginator }}class="active"{{ end }}>
+      {{ .PageNumber }}
+    </a>
+    {{ end }}
+  </div>
+  {{ if .NextInSection }}
+  <a href="{{ .NextInSection.URL.Permalink }}" class="button next">Next Page</a>
+  {{ end }}
+</div>
+{{ end }}

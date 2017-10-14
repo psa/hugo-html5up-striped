@@ -1,5 +1,5 @@
-+++
-type = "page"
-tags = []
-categories = []
-+++
+---
+type: "page"
+tags: []
+categories: []
+---

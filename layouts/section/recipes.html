@@ -1,0 +1,24 @@
+{{ partial "header.html" . }}
+  <div id="post-content">
+    <div class="inner">
+      {{ range .Data.Pages.GroupByParam "meal" }}
+      <article class="box post">
+        <header>
+          <h2>{{ title .Key }}</h2>
+        </header>
+        <ul>
+          {{ range .Pages.ByTitle }}
+          <li>
+            <a href="{{ .Permalink }}">{{ .Title }}</a>
+            {{ if .Description }}
+              {{ .Description }}
+            {{ end }}
+          </li>
+          {{ end }}
+        </ul>
+      {{ end }}
+      </article>
+    </div>
+  </div>
+{{ partial "sidebar.html" . }}
+{{ partial "footer.html" . }}

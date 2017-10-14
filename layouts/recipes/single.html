@@ -1,0 +1,35 @@
+{{ partial "header.html" . }}
+
+    <!-- Content -->
+      <div id="post-content">
+        <div class="inner">
+
+          <!-- Post -->
+          <article class="box post">
+            <header>
+              <h2><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
+              <ul class="no-list-style">
+                {{ if .Params.prep_time }}
+                <li><strong>Prep Time:</strong> {{ .Params.prep_time }}</li>
+                {{ end }}
+                {{ if .Params.cook_time }}
+                <li><strong>Cook Time:</strong> {{ .Params.cook_time }}</li>
+                {{ end }}
+                {{ if .Params.serves }}
+                <li><strong>Serves:</strong> {{ .Params.serves }}</li>
+                {{ end }}
+                {{ if .Params.makes }}
+                <li><strong>Makes:</strong> {{ .Params.makes }}</li>
+                {{ end }}
+              </ul>
+            </header>
+            {{ .Content }}
+            {{ partial "sharethis.html" . }}
+            {{ partial "disqus.html" . }}
+          </article>
+
+        </div>
+      </div>
+
+{{ partial "sidebar.html" . }}
+{{ partial "footer.html" . }}

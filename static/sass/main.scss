@@ -59,6 +59,11 @@
 		color: #c94663;
 	}
 
+	div.inner strong, div.inner b {
+		font-weight: 700;
+		color: #232323;
+	}
+
 	strong, b {
 		font-weight: 700;
 		color: #232323;
@@ -205,6 +210,14 @@
 			margin-top: 1em;
 			color: #999;
 		}
+
+    > ul {
+			font-family: 'Open Sans Condensed', sans-serif;
+			font-weight: 300;
+			display: block;
+			margin-top: 1em;
+    }
+
 	}
 
 	section, article {
@@ -309,6 +322,9 @@
     li {
       padding-left: 0.5em;
     }
+		&.no-list-style {
+			list-style: none;
+    }
 	}
 
 	div.inner ol {
@@ -329,6 +345,9 @@
 				padding-left: 0.5em;
 			}
 		}
+		&.no-list-style {
+			list-style: none;
+    }
 	}
 
 	ol {
