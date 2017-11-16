@@ -64,7 +64,7 @@ Example Params
 ==============
 
 ```
-baseurl = "http://gometric.us/"
+baseurl = "https://gometric.us/"
 title = "Go Metric"
 author = "Paul Armstrong"
 copyright = "2008 - 2016, Paul Armstrong; all rights reserved."
