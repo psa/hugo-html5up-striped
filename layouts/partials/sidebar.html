@@ -30,11 +30,11 @@
 
   <nav id="nav">
     <ul>
-      {{ range $name, $value := .Site.Sections }}
-        {{ if ne $name "" }}
-          {{ if ne $name "post" }}
+      {{ range $index, $section := .Site.Home.Sections }}
+        {{ if ne $section "" }}
+          {{ if ne $section "posts" }}
       <li>
-        <a href="/{{ $name }}">{{ humanize $name }}</a>
+        <a href="{{ $section.Permalink }}">{{ humanize $section.Name }}</a>
       </li>
           {{ else }}
       <li>
