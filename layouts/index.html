@@ -2,9 +2,9 @@
 
   {{ $max_pages := .Site.Params.maxPagination | default 10 }}
   {{ if .Site.Params.orderByPublishDate }}
-    {{ $paginator := .Paginate (first $max_pages (where .Site.Pages.ByPublishDate.Reverse "Type" "post")) }}
+    {{ $paginator := .Paginate (first $max_pages (where .Data.Pages.ByPublishDate.Reverse "Type" "post")) }}
   {{ else }}
-    {{ $paginator := .Paginate (first $max_pages (where .Site.Pages "Type" "post")) }}
+    {{ $paginator := .Paginate (first $max_pages (where .Data.Pages "Type" "post")) }}
   {{ end }}
 
   <!-- Content -->

@@ -10,7 +10,7 @@
   {{ $show_posts := .Site.Params.sidebar.recentPosts | default 5 }}
   {{ $show_updates := .Site.Params.sidebar.recentUpdates | default 5 }}
   {{ $show_tags := .Site.Params.sidebar.tags | default 5 }}
-  {{ $changes := .Site.Pages.ByDate.Reverse }}
+  {{ $changes := .Data.Pages.ByDate.Reverse }}
   {{ $about_enable := .Site.Params.sidebar.about | default true }}
   {{ $contact_enable := .Site.Params.sidebar.contact | default true }}
   {{ $about_title := .Site.Params.sidebar.about | default "About" }}
