@@ -85,3 +85,14 @@ theme = "hugo-html5up-striped"
     about = false
     recentPosts = 5
 ```
+
+Development
+===========
+
+Development requires the following tools to work with CSS and JS:
+
+```
+npm install -g clean-css-cli
+npm install -g sass
+npm install -g uglify-js
+```
